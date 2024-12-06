@@ -4,6 +4,7 @@ import products from '../products';
 import Product from '../components/Product';
 
 function HomeScreen() {
+
     return (
         <div>
             <h1>Lastest Product</h1>
