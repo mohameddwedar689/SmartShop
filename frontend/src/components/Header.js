@@ -6,6 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import {useDispatch , useSelector} from 'react-redux'
 import { logout } from '../actions/userActions'
 import {useNavigate } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 function Header() {
 
@@ -22,6 +23,18 @@ function Header() {
 
     const redirectToProfile = () => {
         navigate('/profile')
+    }
+
+    const redirectToUsersList = () => {
+        navigate('/admin/userlist')
+    }
+
+    const redirectToProductsList= () => {
+        navigate('/admin/productlist')
+    }
+
+    const redirectToOrdersList = () => {
+        navigate('/admin/orderlist')
     }
 
     return (
@@ -45,6 +58,19 @@ function Header() {
                                     </NavDropdown>
                                 ) : (
                                     <Nav.Link href='/login'><i className='fas fa-user'></i>Login</Nav.Link>
+                                )}
+                                {userInfo && userInfo.isAdmin && (
+                                    <NavDropdown title='Admin' id='adminmenu'>
+                                        <Nav.Link>
+                                            <NavDropdown.Item onClick={redirectToUsersList}>Users</NavDropdown.Item>
+                                        </Nav.Link>
+                                        <Nav.Link>
+                                            <NavDropdown.Item onClick={redirectToProductsList}>Products</NavDropdown.Item>
+                                        </Nav.Link>
+                                        <Nav.Link>
+                                            <NavDropdown.Item onClick={redirectToOrdersList}>Orders</NavDropdown.Item>
+                                        </Nav.Link>
+                                    </NavDropdown>
                                 )}
                             </Nav>
                         </Navbar.Collapse>

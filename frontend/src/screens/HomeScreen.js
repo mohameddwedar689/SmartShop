@@ -16,8 +16,8 @@ function HomeScreen() {
         dispatch(listProducts())
     } , [dispatch]);
 
-    console.log("testtttt: " , products[0]);
-    console.log("testtttt: " , products[0]?.image);
+    // console.log("testtttt: " , products[0]);
+    // console.log("testtttt: " , products[0]?.image);
     
 
 
