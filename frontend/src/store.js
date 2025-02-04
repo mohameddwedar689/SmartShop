@@ -1,6 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { thunk }  from 'redux-thunk'
-import { productListReducer , productDetailesReducer } from './reducers/prodcutReducers'
+import { 
+    productListReducer , 
+    productDetailesReducer ,
+    productDeleteReducer,
+    productCreateReducer,
+    productUpdateReducer,
+} from './reducers/prodcutReducers'
 import {cartReducer} from './reducers/cartReducers'
 import {
     userLoginReducer , 
@@ -11,7 +17,14 @@ import {
     userDeleteReducer ,
     userUpdateReducer,
 } from './reducers/userReducers'
-import {orderCreateReducer} from './reducers/orderReducers'
+import {
+    orderCreateReducer ,
+    orderDetailsReducer,
+    orderPayReducer,
+    orderListMyReducer,
+    orderListReducer,
+    orderDeliveredReducer,
+} from './reducers/orderReducers'
 
 const middleware = [thunk]
 
@@ -39,6 +52,10 @@ const store = configureStore({
     reducer: {
         productList: productListReducer,
         productDetailes: productDetailesReducer,
+        productDelete: productDeleteReducer,
+        productCreate: productCreateReducer,
+        productUpdate: productUpdateReducer,
+
         cart: cartReducer,
         userLogin: userLoginReducer,
         userRegister: userRegisterReducer,
@@ -47,7 +64,13 @@ const store = configureStore({
         userList: userListReducer,
         userDelete: userDeleteReducer,
         userUpdate: userUpdateReducer,
+
         orderCreate: orderCreateReducer,
+        orderDetails: orderDetailsReducer,
+        orderPay: orderPayReducer,
+        orderListMy: orderListMyReducer,
+        orderList: orderListReducer,
+        orderDeliver: orderDeliveredReducer,
     }, 
     preloadedState: initialState,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(...middleware),

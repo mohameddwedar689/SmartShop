@@ -38,10 +38,14 @@ const totalPrice = (Number(itemPrice) + Number(shippingPrice) + Number(taxPrice)
             shippingAddress: cart.shippingAddress,
             paymentMethod: cart.paymentMethod,
             taxPrice, // Ensure numeric values are sent
+            itemPrice: cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0).toFixed(2),
             shippingPrice,
             totalPrice,
         };
         dispatch(createOrder(orderData))
+        console.log("Order Data: " , orderData);
+        console.log("shipping address: " , orderData.shippingAddress);
+        
     }
     return (
         <div>
