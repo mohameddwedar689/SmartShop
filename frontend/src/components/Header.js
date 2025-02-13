@@ -7,6 +7,7 @@ import {useDispatch , useSelector} from 'react-redux'
 import { logout } from '../actions/userActions'
 import {useNavigate } from 'react-router-dom'
 import {Link} from 'react-router-dom'
+import SearchBox from './SearchBox'
 
 function Header() {
 
@@ -45,7 +46,8 @@ function Header() {
                         <Navbar.Brand href='/'>SmartShop</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav className="mr-auto">
+                            <SearchBox/>
+                            <Nav className="ms-auto">
                                 <Nav.Link href='/cart'><i className='fas fa-shopping-cart'></i>Cart</Nav.Link>
                                 {userInfo ? (
                                     <NavDropdown title={userInfo.name} id='username'>
@@ -73,6 +75,7 @@ function Header() {
                                     </NavDropdown>
                                 )}
                             </Nav>
+                            
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
